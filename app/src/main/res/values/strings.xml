@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NASA Image of the Day</string>
+    <string name="input_label"> Input a Year/Month:</string>
+</resources>
