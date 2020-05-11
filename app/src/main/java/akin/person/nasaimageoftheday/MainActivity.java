@@ -10,6 +10,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     int imageCounter = 0;
     int daysInMonth = 0;
 
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
         tvYear = (TextView) findViewById(R.id.et_YYYY);
         tvMonth = (TextView) findViewById(R.id.et_MM);
 
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setProgress(100);
+        progressBar.setVisibility(View.GONE);
 
         btnLoad.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -177,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
      * Loads image into image view
      */
     private void loadImage() {
+       // progressBar.setVisibility(View.VISIBLE);
         String year = tvYear.getText().toString();
         String month = tvMonth.getText().toString();
         descList.clear();
@@ -199,7 +206,13 @@ public class MainActivity extends AppCompatActivity {
                     urlLink +=  link + date + hdKey + apiKey;
                     getWebContents(urlLink);
 
-
+                    System.out.println("updating progress");
+//                    progressBar.setProgress(i/daysInMonth);
+//                    try {
+//                        Thread.sleep(100);
+//                    } catch (InterruptedException e) {
+//                        //exception
+//                    } //interrupted exception
 
                     //resets variables
                     date = "";
@@ -208,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+          //  progressBar.setVisibility(View.GONE);
         } //date after 1995-07
 
     } //loadImage

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -26,6 +27,7 @@ public class GetWebContentsTask extends AsyncTask<String, String, String> {
     TextView date;
     TextView description;
 
+
     public GetWebContentsTask(ImageView iv, TextView tv_date, TextView tv_cont,
                               List<String> content, List<String> dates, List<Bitmap> imageLinks) {
         this.imageView = iv;
@@ -35,9 +37,7 @@ public class GetWebContentsTask extends AsyncTask<String, String, String> {
         this.listDesc = content;
         this.listDates = dates;
         this.listLinks = imageLinks;
-//        this.listDesc.clear();
-//        this.listDates.clear();
-//        this.listLinks.clear();
+
 
     } //constructor
 

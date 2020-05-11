@@ -1,6 +1,7 @@
 package akin.person.nasaimageoftheday;
 
 
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,21 +13,27 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class GetWebContentsTaskDEF extends AsyncTask<String, String, String> {
+public class GetWebTask extends AsyncTask<String, String, String> {
      String contents;
   //  String url;
-    List<String> listCont;
+    List<String> listDesc;
     List<String> listDates;
-    List<String> listLinks;
+    List<Bitmap> listLinks; //bitmapLinks
 
     ImageView imageView;
     TextView date;
     TextView description;
 
-    public GetWebContentsTaskDEF(ImageView iv, TextView tv_date, TextView tv_cont) {
+
+    public GetWebTask(ImageView iv, TextView tv_date, TextView tv_cont,
+                      List<String> content, List<String> dates, List<Bitmap> imageLinks) {
         this.imageView = iv;
         this.date = tv_date;
         this.description = tv_cont;
+
+        this.listDesc = content;
+        this.listDates = dates;
+        this.listLinks = imageLinks;
 
 
     } //constructor
@@ -73,12 +80,18 @@ public class GetWebContentsTaskDEF extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String content) {
-        System.out.println("Initializing contents in task");
 
-        this.date.setText(getImageDate(content));
-        setImage(content);
-        this.description.setText(getImageDesc(content));
 
+        String imgLink = getImage(content);
+
+        new DownloadImageTask(this.listLinks, imageView).execute(imgLink); //adds image bitmap to list
+        listDesc.add(getImageDesc(content));
+        listDates.add(getImageDate(content));
+        this.description.setText(listDesc.get(0)); //sets description
+        this.date.setText(listDates.get(0)); //sets date
+
+
+       // listLinks.add(imgLink);
     } //onPostExecute
 
     /**
@@ -101,7 +114,7 @@ public class GetWebContentsTaskDEF extends AsyncTask<String, String, String> {
      * @param contents - contents to search for URL.
      * @throws MalformedURLException
      */
-    public void setImage(String contents) {
+    public String getImage(String contents) {
         String imageLink = "";
 
         //parses contents for HDURL
@@ -109,10 +122,8 @@ public class GetWebContentsTaskDEF extends AsyncTask<String, String, String> {
         int end = contents.indexOf("\"", start + 1);
         imageLink = contents.substring(start, end);
 
+        return imageLink;
 
-        //makes bitmap for imageLink HDURL
-        //sets bitmap to imageView
-        AsyncTask imgBitmap = new DownloadImageTaskDEF(this.imageView).execute(imageLink);
     } //getImage
 
 
