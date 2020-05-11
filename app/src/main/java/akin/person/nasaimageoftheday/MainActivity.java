@@ -200,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
                     getWebContents(urlLink);
 
 
+
                     //resets variables
                     date = "";
                     urlLink = "";
