@@ -1,125 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#383839"
+    android:windowSoftInputMode="adjustPan"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="403dp"
-        android:layout_height="22dp"
-        android:text="   Images provided courtesy of NASA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.625"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/et_year"
-        android:layout_width="104dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:hint="YYYY"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_prompt"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
-
-    <Button
-        android:id="@+id/btn_load"
-        android:layout_width="63dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
-        android:text="LOAD"
-        app:layout_constraintStart_toEndOf="@+id/et_month"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <TextView
-        android:id="@+id/tv_fslash"
-        android:layout_width="12dp"
-        android:layout_height="28dp"
-        android:text="/"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/et_month"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/et_year"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103" />
-
-    <TextView
-        android:id="@+id/tv_prompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:text="@string/input_label"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/et_month"
-        android:layout_width="87dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="12dp"
-        android:ems="10"
-        android:hint="MM"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/et_year"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101" />
 
     <ImageView
         android:id="@+id/IVImage"
-        android:layout_width="414dp"
-        android:layout_height="355dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:layout_width="350dp"
+        android:layout_height="271dp"
+        android:scaleType="fitXY"
+        android:isScrollContainer="false"
+        android:windowSoftInputMode="stateVisible|adjustPan"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.315"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        app:layout_constraintVertical_bias="0.027"
         tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="415dp"
+        android:layout_height="89dp"
+        android:isScrollContainer="false"
         android:background="#919191"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="false"
+        android:text="@string/in_label"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar2"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.031" />
+
+    <EditText
+        android:id="@+id/et_YYYY"
+        android:layout_width="54dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="YYYY"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.815"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011" />
+
+    <EditText
+        android:id="@+id/et_MM"
+        android:layout_width="51dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:hint="MM"
+        android:imeOptions="actionNext"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <TextView
+        android:id="@+id/tv_fslash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="16dp"
+        android:text="/"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintTop_toTopOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isScrollContainer="false"
+        android:text="@string/txt_courtesy"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="116dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="676dp"
+        android:text="@string/backward"
+        android:isScrollContainer="false"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_pp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_pp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Play"
+        android:isScrollContainer="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_back"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
+
+    <Button
+        android:id="@+id/btn_frwd"
+        android:layout_width="116dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="676dp"
+        android:text="@string/forward"
+        android:isScrollContainer="false"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_back"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_load"
+        android:layout_width="62dp"
+        android:layout_height="36dp"
+        android:text="Load"
+        android:isScrollContainer="false"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.911"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_MM"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="123dp"
+        android:layout_height="20dp"
+        android:textColor="#FFFFFF"
+        android:windowSoftInputMode="stateVisible|adjustPan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IVImage"
+        app:layout_constraintVertical_bias="0.021" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="338dp"
+        android:layout_height="195dp"
+        android:autoSizeMaxTextSize="100sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeStepGranularity="2sp"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:windowSoftInputMode="stateVisible|adjustPan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date"
+        app:layout_constraintVertical_bias="0.033" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
